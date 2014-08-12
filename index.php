@@ -115,23 +115,12 @@ function update_position() {
 		<div id="map_canvas" style="width:100%; height:250px"></div>
 </div>
 <input type="button" value=" Update Location " onclick="javascript:update_position()">
-        <div data-role="collapsible"><h2>Waypoints</h2>
+        <div data-role="collapsible"><h2>Waypoint List</h2>
                 <div id="wayPointList" data-role="collapsible-set">
 <? foreach($waypoints as $w) { ?>
 <label><input type=checkbox class=coordinate value="<?=$w['id'];?>,<?=str_replace(array("'",","),"",$w['name']);?>,<?=$w['latitude'];?>,<?=$w['longitude'];?>"> <?=$w['name'];?></label>
 <? } ?>
 </div>
-</div>
-<input type="button" id="newPoint" value=" Add Waypoint ">
-<div id="newForm"  style="display:none;" data-role="fieldcontain" class="ui-field-contain ui-body">
-<label for="name" class="ui-input-text">WayPoint Name:</label><input type="text" name="newName" id="newName" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-<button type="submit" id="newSave" data-theme="a" class="ui-btn-hidden" aria-disabled="false">Save</button>
-authenticate somehow?<br>
--show direction of movement?
--add marker
--edit marker
--delete marker
--allow color for marker
 </div>
 <div id="current">Initializing...</div>
 <script>
@@ -143,17 +132,12 @@ $('.coordinate').click(function() {
                 removeMarker(args[0]);
         }
 });
-$('#newPoint').click(function() { 
-  update_position();
-  $('#newForm').show();
-});
 $('#newSave').click(function() { 
   $('#wayPointList').append( "<div class=\"ui-checkbox\"><label><input type=checkbox class=coordinate value=\"2,"+$('#newName').val()+","+latitude+","+longitude+"\"> "+$('#newName').val()+"</label></div>");
    $('#newName').html("");
    $('#newForm').hide();	
 });
 </script>
-
 	</body>
 </html>
 <?
