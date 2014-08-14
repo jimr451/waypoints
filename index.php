@@ -1,10 +1,10 @@
 <?
   include "waypoints.php";
-
+  include "config.php";
   // Get a list of stored waypoints for this user
   $userid = 1;
-  $database = mysql_connect('localhost', 'jimr451_admin', 'f3-hii9');
-  mysql_select_db("jimr451_admin",$database);
+  $database = mysql_connect($DBhost, $DBuser, $DBpasswd);
+  mysql_select_db($DBname,$database);
 
   $waypoints = WayPoint::listAll($userid);
 ?>
