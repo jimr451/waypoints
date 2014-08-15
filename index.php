@@ -3,6 +3,7 @@
   include "config.php";
   // Get a list of stored waypoints for this user
   $userid = 1;
+  // These are all settings from config.php
   $database = mysql_connect($DBhost, $DBuser, $DBpasswd);
   mysql_select_db($DBname,$database);
 
